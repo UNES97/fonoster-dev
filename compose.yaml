@@ -8,7 +8,7 @@ services:
       - SERVER_DASHBOARD_SESSION_SECRET
 
   apiserver:
-    image: fonoster/apiserver:0.16.8
+    image: fonoster/apiserver:0.16.7
     restart: unless-stopped
     environment:
       - APISERVER_APP_URL
@@ -120,7 +120,7 @@ services:
     platform: linux/x86_64
     ports: 
       - 10000-10100:10000-10100/udp
-      - 8081:8080
+      - 8081:8080  # Changed from 8080:8080 to avoid port conflict
     environment:
       PORT_MAX: ${RTPENGINE_PORT_MAX}
       PORT_MIN: ${RTPENGINE_PORT_MIN}
